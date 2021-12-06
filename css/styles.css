@@ -12,6 +12,7 @@
   --primary-grey: rgba(255, 255, 255, 0.6);
   --secondary-grey: #eee;
   --tertiary-grey: #ececec;
+  --text-grey: #757575;
 }
 /*  Box sizing rules  */
 *,
@@ -34,10 +35,6 @@ dd {
   margin: 0;
 }
 
-a {
-  text-decoration: none;
-}
-
 /*  Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed  */
 ul[role='list'],
 ol[role='list'] {
@@ -53,19 +50,32 @@ html {
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
+  font: 14px/1.71 Roboto, 'Helvetica Neue', sans-serif;
+  color: var(--text-grey);
   background: var(--primary-white);
-  color: var(--primary-black);
-}
-
-body,
-* {
-  font: 14px/24px Roboto, 'Helvetica Neue', sans-serif;
 }
 
 /*  A elements that don't have a class get default styles  */
 a:not([class]) {
   text-decoration-skip-ink: auto;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-black);
+  font: 500 14px/1.14 Roboto, 'Helvetica Neue', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+a:hover,
+a.active {
+  color: var(--primary-blue);
+}
+
+a:focus {
+  color: var(--primary-blue);
+  border-radius: 2px;
+  outline: 1px solid var(--primary-blue);
 }
 
 /*  Make images easier to work with  */
@@ -84,7 +94,6 @@ select {
 }
 
 button {
-  background: var(--white-bg);
   border-radius: 4px;
   border: none;
 }
@@ -102,6 +111,19 @@ button:hover {
   cursor: pointer;
 }
 
+button:focus {
+  color: var(--primary-blue);
+  background-color: var(--white-bg);
+  border-radius: 2px;
+  outline: 1px solid var(--primary-blue);
+}
+
+button.active:focus {
+  color: var(--primary-blue);
+  background: var(--white-bg);
+  outline: 1px solid var(--primary-blue);
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -113,16 +135,17 @@ ul {
   padding-inline-start: 0px;
 }
 
-.grid {
+.container {
   width: 100%;
   max-width: 1170px;
   margin: 0 auto;
 }
 
 .main-h1 {
-  font: 900 44px/60px Roboto, 'Helvetica Neue', sans-serif;
+  font: 900 44px/1.36 Roboto, 'Helvetica Neue', sans-serif;
   color: var(--primary-white);
   margin-bottom: 40px;
+  text-transform: uppercase;
 }
 
 .section {
@@ -131,37 +154,37 @@ ul {
   clear: both;
   padding: 94px 0;
   overflow: auto;
-  float: left;
 }
 
 .section-caption {
   margin-bottom: 50px;
   text-align: center;
   color: var(--primary-black);
-  font: 700 36px/42px Roboto, 'Helvetica Neue', sans-serif;
+  font: 700 36px/1.16 Roboto, 'Helvetica Neue', sans-serif;
 }
 
 /* Header */
-
 .header {
   background: var(--primary-white);
-  border-bottom: 1px solid var(--tertiary-grey);
+  border: 1px solid var(--tertiary-grey);
 }
 
 .header-inner {
-  overflow: auto;
   padding: 24px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
-.logo {
-  display: block;
-  float: left;
+.logo,
+.logo:hover,
+.logo:focus {
   margin-right: 70px;
   color: var(--primary-black);
 }
 
 .logo span {
-  font: 700 26px/30px Raleway, 'Helvetica Neue', sans-serif;
+  font: 700 26px/1.15 Raleway, 'Helvetica Neue', sans-serif;
 }
 
 .logo span:first-child {
@@ -170,59 +193,50 @@ ul {
 
 .nav-list,
 .contacts-list {
-  float: left;
+  display: flex;
+  justify-content: flex-start;
   list-style-type: none;
   padding: 0;
   margin-top: 6px;
 }
 
-.nav-list li,
-.contacts-list li {
-  display: inline-block;
-  padding: 0 25px;
+.contacts-list {
+  margin-left: auto;
 }
 
 .nav-list li a,
 .contacts-list li a {
-  text-decoration: none;
-  color: var(--primary-black);
-  font: 500 14px/16px Roboto, 'Helvetica Neue', sans-serif;
-  letter-spacing: 0.02em;
-}
-
-.nav-list li a:hover,
-.nav-list li a.active,
-.contacts-list li a:hover,
-.contacts-list li a.active {
-  color: var(--primary-blue);
-}
-
-.contacts-list {
-  float: right;
+  padding: 5px 0px;
+  margin: 0 25px;
 }
 
 /* Main cta section*/
 .main-section {
   position: relative;
-  background: #2f303a;
-  height: calc(100vh - 80px);
+  padding: 195px 20px;
+  background: var(--secondary-black);
 }
 
 .cta-block {
-  display: inline-block;
   width: 100%;
-  max-width: 500px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  max-width: 600px;
+  margin: 0 auto;
   text-align: center;
 }
 
 .main-cta {
-  padding: 10px 32px;
   margin: 0 auto;
-  font: 700 16px/30px Roboto, 'Helvetica Neue', sans-serif;
+  font: 700 16px/1.87 Roboto, 'Helvetica Neue', sans-serif;
+  color: var(--primary-white);
+  background-color: var(--primary-blue);
+  padding: 10px 32px;
+}
+
+.main-cta:focus {
+  color: var(--primary-blue);
+  background-color: var(--white-bg);
+  border-radius: 2px;
+  outline: 1px solid var(--primary-blue);
 }
 
 .main-cta:hover {
@@ -230,56 +244,65 @@ ul {
 }
 
 /* benefit section */
-.benefits {
-  padding-bottom: 0;
+.benefit-list {
+  display: flex;
+  flex-direction: row;
 }
 
 .benefit {
-  width: 25%;
-  float: left;
   margin: 0;
   box-sizing: border-box;
-  padding-right: 30px;
+  margin-right: 30px;
 }
 
 .benefit:nth-child(4n) {
-  padding-right: 0;
+  margin-right: 0;
 }
 
 .benefit-caption {
   margin-bottom: 15px;
   color: var(--primary-black);
-  font: 700 14px/16px Roboto, 'Helvetica Neue', sans-serif;
+  font: 700 14px/1.14 Roboto, 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
 }
 
 .benefit-text {
-  color: #757575;
-  font: 400 14px/24px Roboto, 'Helvetica Neue', sans-serif;
+  font: 400 14px/1.71 Roboto, 'Helvetica Neue', sans-serif;
 }
 
 /* expertise section */
-.expertise-item {
-  display: inline-block;
-  float: left;
-  width: 33.33%;
+.expertise-body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 /* team section */
+.team-body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.expertise-item {
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+.expertise-item:nth-child(3n) {
+  margin-right: 0;
+}
+
 .team {
   background: var(--white-bg);
-  display: inline-block;
-  width: 100%;
 }
 
 .team-mate {
-  display: inline-block;
-  float: left;
-  width: 25%;
-}
-
-.team-mate {
-  width: calc(25% - 22.5px);
-  margin-right: 22.5px;
+  max-width: 270px;
+  margin-right: 30px;
+  margin-bottom: 30px;
   text-align: center;
   background: var(--primary-white);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -296,6 +319,7 @@ ul {
 }
 
 .mate-img {
+  width: 270px;
   width: 100%;
   height: auto;
   margin-bottom: 30px;
@@ -303,40 +327,44 @@ ul {
 
 .mate-name {
   margin-bottom: 10px;
-  font: 500 16px/19px Roboto, 'Helvetica Neue', sans-serif;
+  color: var(--primary-black);
+  font: 500 16px/1.18 Roboto, 'Helvetica Neue', sans-serif;
 }
 
 .mate-position {
-  color: #757575;
-  font: 400 16px/19px Roboto, 'Helvetica Neue', sans-serif;
+  font: 400 16px/1.18 Roboto, 'Helvetica Neue', sans-serif;
 }
 
 /* footer */
 .footer {
+  display: flex;
   padding: 60px 0;
-  display: inline-block;
   width: 100%;
-  background: #2f303a;
+  background: var(--secondary-black);
 }
 
 .footer .logo {
+  display: flex;
   margin-bottom: 20px;
   color: var(--primary-white);
-}
-
-.footer-leftside {
-  display: inline-block;
-}
-
-.footer a {
-  width: 100%;
-  display: inline-block;
-  margin-bottom: 8px;
 }
 
 .footer a {
   color: var(--primary-grey);
   text-decoration: none;
+}
+
+.footer a:focus {
+  color: var(--primary-blue);
+}
+
+.footer-leftside {
+  flex-direction: column;
+}
+
+.footer-leftside a {
+  width: 100%;
+  padding: 4px 5px;
 }
 
 .footer a:hover {
@@ -346,28 +374,28 @@ ul {
 
 /* portfolio page */
 .portfolio-head {
-  display: inline-block;
   margin-bottom: 30px;
   text-align: center;
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .portfolio-head li {
-  display: inline-flex;
-  display: inline-block;
   text-align: center;
 }
 
 .filter-btn {
-  float: left;
-  font: 500 16px/26px Roboto, 'Helvetica Neue', sans-serif;
+  font: 500 16px/1.62 Roboto, 'Helvetica Neue', sans-serif;
   padding: 8px 22px;
   margin: 4px;
 }
 
 .portfolio-body {
-  display: inline-block;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .project-item {
@@ -375,7 +403,6 @@ ul {
   max-width: 370px;
   margin-right: 30px;
   margin-bottom: 30px;
-  float: left;
   background: var(--primary-white);
   border: 1px solid var(--secondary-grey);
   box-sizing: border-box;
@@ -389,12 +416,15 @@ ul {
 
 .project-info {
   padding: 24px;
+  border: 1px solid var(--primary-grey);
+  border-top: none;
 }
 
 .project-name {
-  font: 700 18px/36px Roboto, 'Helvetica Neue', sans-serif;
+  color: var(--primary-black);
+  font: 700 18px/2 Roboto, 'Helvetica Neue', sans-serif;
 }
 
 .project-description {
-  font: 400 16px/30px Roboto, 'Helvetica Neue', sans-serif;
+  font: 400 16px/1.87 Roboto, 'Helvetica Neue', sans-serif;
 }
