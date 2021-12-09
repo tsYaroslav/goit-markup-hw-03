@@ -70,8 +70,10 @@ a {
 }
 
 a:hover,
-a.active {
+a.active,
+a:focus {
   color: var(--primary-blue);
+  outline: none;
 }
 
 /*  Make images easier to work with  */
@@ -461,6 +463,10 @@ ul {
   text-decoration: none;
 }
 
+.footer a:focus {
+  color: var(--primary-white);
+}
+
 .footer-leftside {
   flex-direction: column;
 }
@@ -550,6 +556,10 @@ ul {
   margin: 15px;
   border: 1px solid var(--secondary-grey);
   background: var(--primary-white);
+}
+
+.project-item a:focus {
+  color: initial;
 }
 
 .project-item a {
