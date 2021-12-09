@@ -590,5 +590,6 @@ ul {
 }
 
 .project-description {
+  color: var(--text-grey);
   font: 400 16px/1.87 Roboto, 'Helvetica Neue', sans-serif;
 }
